@@ -10,3 +10,4 @@ admin.site.register(Usuario)
 admin.site.register(Pago)
 admin.site.register(Vehiculo)
 admin.site.register(Celda)
+

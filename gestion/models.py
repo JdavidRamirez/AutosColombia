@@ -48,11 +48,13 @@ class Celda(models.Model):
     dimensiones=models.CharField(max_length=50)
     idVehiculo=ForeignKey(
         Vehiculo, null=True, blank=True, on_delete=models.CASCADE)
+    idUsuario=ForeignKey(
+        Usuario, null=True, blank=True, on_delete=models.CASCADE)
 
 
     def __str__(self):
-        texto = "{}, {}"
-        return texto.format(self.idCelda, self.idVehiculo)
+        texto = "{}, {} {}"
+        return texto.format(self.idCelda, self.idVehiculo, self.idUsuario)
 
 
 
