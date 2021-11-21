@@ -2,7 +2,7 @@ from django.http import HttpResponse, request
 from django.http import HttpRequest
 from django.shortcuts import render
 from django.views.generic import ListView
-from gestion.models import Usuario, Vehiculo
+from gestion.models import Celda, Usuario, Vehiculo
 
 
 
@@ -27,7 +27,12 @@ def buscar(request):
 def buscar_vehiculo(request):
 
     if request.GET["vh"]:
-        mensaje2="Vehiculo buscado: %r" %request.GET["vh"]
+        #mensaje2="Vehiculo buscado: %r" %request.GET["vh"]
+        vehiculo=request.GET["vh"]
+        vehiculos=Vehiculo.objects.filter(placa__icontains=vehiculo)
+
+        return render(request, "resultados_vehiculos.html", {"vehiculos": vehiculos, "query":vehiculo})
+
     else: 
         mensaje2="No has introducido nada"
     return HttpResponse(mensaje2)
@@ -35,7 +40,10 @@ def buscar_vehiculo(request):
 def buscar_celda(request):
 
     if request.GET["celda"]:
-        mensaje3="Celda buscado: %r" %request.GET["celda"]
+        #mensaje3="Celda buscado: %r" %request.GET["celda"]
+        celda=request.GET["celda"]
+        celdas=Celda.objects.filter(idCelda__icontains=celda)
+        return render(request, "resultados_celdas.html", {"celdas": celdas, "query":celda})
     else: 
         mensaje3="No has introducido nada"
     return HttpResponse(mensaje3)

@@ -15,24 +15,21 @@
 
     <p>Estás buscando: <strong>{{query}}</strong></p>
 
-    {% if clientes %}
-           <p>Cliente encontrado: {{clientes|length}} clientes</p>
+    {% if celdas %}
+           <p>Celda encontrado: {{celdas|length}} celdas</p>
 
            <ul>
 
-            {% for cliente in clientes %} 
-              
-               <li>idUsuario: {{cliente.idUsuario}} &nbsp;</li>
-               <li> Nombre: {{cliente.nombre}} &nbsp;</li>
-               <li> Apellido: {{cliente.apellido}} &nbsp; </li>
-               <li>Cedula: {{cliente.cedula}} &nbsp; </li>    
-               <li>Celular: {{cliente.celular}}&nbsp;</li>    
-               <li>Email: {{cliente.email}} </li>
-               <br> 
+            {% for celda in celdas %}
+            
+            <li>idCelda : {{celda.idCelda}}&nbsp;</li>
+            <li>dimensiones : {{celda.dimensiones}}&nbsp;</li>   
+            <li>idVehiculo: {{celda.idVehiculo}} &nbsp;</li> 
+            <li>idUsuario: {{celda.idUsuario}} </li> 
+            <br> 
              
-                   
-
-              
+         
+                
                
             {% endfor %}
 

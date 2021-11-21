@@ -15,24 +15,24 @@
 
     <p>Estás buscando: <strong>{{query}}</strong></p>
 
-    {% if clientes %}
-           <p>Cliente encontrado: {{clientes|length}} clientes</p>
+    {% if vehiculos %}
+           <p>Vehiculo encontrado: {{vehiculos|length}} vehiculos</p>
 
            <ul>
 
-            {% for cliente in clientes %} 
-              
-               <li>idUsuario: {{cliente.idUsuario}} &nbsp;</li>
-               <li> Nombre: {{cliente.nombre}} &nbsp;</li>
-               <li> Apellido: {{cliente.apellido}} &nbsp; </li>
-               <li>Cedula: {{cliente.cedula}} &nbsp; </li>    
-               <li>Celular: {{cliente.celular}}&nbsp;</li>    
-               <li>Email: {{cliente.email}} </li>
-               <br> 
+            {% for vehiculo in vehiculos %}
+            <
+              <li>idVehiculo : {{vehiculo.idVehiculo}}&nbsp;</li>
+              <li>idVehiculo : {{vehiculo.idVehiculo}}&nbsp;</li>   
+              <li>Placa: {{vehiculo.placa}} &nbsp;</li>  
+              <li>Color: {{vehiculo.color}}  &nbsp;</li>    
+              <li>Marca: {{vehiculo.marca}} &nbsp; </li>   
+              <li> Modelo: {{vehiculo.modelo}} &nbsp; </li>  
+              <li>Propietario: {{vehiculo.propietario}} </li>
+              <br> 
              
-                   
-
-              
+         
+                
                
             {% endfor %}
 
