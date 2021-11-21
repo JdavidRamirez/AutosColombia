@@ -19,8 +19,8 @@ from gestion import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('busqueda_usuarios/', views.busqueda_usuarios),
+    path('formulario_consulta/', views.formulario_consulta),
     path('buscar/', views.buscar),
-    path('busqueda_vehiculo/',views.busqueda_vehiculo),
     path('buscar_vehiculo/', views.buscar_vehiculo),
+    path('buscar_celda/', views.buscar_celda),
 ]

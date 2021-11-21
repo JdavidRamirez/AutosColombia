@@ -53,7 +53,7 @@ class Celda(models.Model):
 
 
     def __str__(self):
-        texto = "{}, {} {}"
+        texto = "{} {}, {}"
         return texto.format(self.idCelda, self.idVehiculo, self.idUsuario)
 
 

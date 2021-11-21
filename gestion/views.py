@@ -5,22 +5,37 @@ from django.views.generic import ListView
 from gestion.models import Usuario, Vehiculo
 
 
-def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
 
+def formulario_consulta(request):
 
-def busqueda_usuarios(request):
-
-    return render(request, "busqueda_usuarios.html")
+    return render(request, "formulario_consulta.html")
 
 def buscar(request):
-    mensaje="Usuario buscado: %r" %request.GET["user"]
+
+    if request.GET["user"]:
+        #mensaje="Usuario buscado: %r" %request.GET["user"]
+        usuario=request.GET["user"]
+
+        clientes=Usuario.objects.filter(nombre__icontains=usuario)
+
+        return render(request, "resultados_busqueda.html", {"clientes": clientes, "query":usuario})
+    else:
+        mensaje="No has introducido nada"
+
     return HttpResponse(mensaje)
 
-def busqueda_vehiculo(request):
-
-    return render(request, "busqueda_vehiculo.html")
-
 def buscar_vehiculo(request):
-    mensaje2="Vehiculo buscado: %r" %request.GET["vh"]
+
+    if request.GET["vh"]:
+        mensaje2="Vehiculo buscado: %r" %request.GET["vh"]
+    else: 
+        mensaje2="No has introducido nada"
     return HttpResponse(mensaje2)
+
+def buscar_celda(request):
+
+    if request.GET["celda"]:
+        mensaje3="Celda buscado: %r" %request.GET["celda"]
+    else: 
+        mensaje3="No has introducido nada"
+    return HttpResponse(mensaje3)
