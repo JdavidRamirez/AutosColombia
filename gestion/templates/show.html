@@ -1,0 +1,44 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Usuario Records</title>  
+    {% load static %}  
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/> 
+
+</head>  
+<body>  
+<table class="table table-striped table-bordered table-sm">  
+    <thead class="thead-dark">  
+    <tr>  
+        <th>Usuario ID</th>  
+        <th>Usuario Cedula</th>  
+        <th>Usuario Nombre</th>  
+        <th>Usuario Apellido</th> 
+        <th>Usuario Celular</th> 
+        <th>Usuario Email</th>  
+        <th>Actions</th>  
+    </tr>  
+    </thead>  
+    <tbody>  
+{% for usuario in usuarios %}  
+    <tr>  
+        <td>{{ usuario.idUsuario }}</td>  
+        <td>{{ usuario.cedula }}</td>  
+        <td>{{ usuario.nombre }}</td>  
+        <td>{{ usuario.apellido }}</td> 
+        <td>{{ usuario.celular }}</td> 
+        <td>{{ usuario.email }}</td>     
+        <td>   
+            <a href="/edit/{{ usuario.idUsuario }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>  
+            <a href="/delete/{{ usuario.idUsuario  }}">Delete</a>  
+        </td>  
+    </tr>  
+{% endfor %}  
+    </tbody>  
+</table>  
+<br>  
+<br>  
+<center><a href="/emp" class="btn btn-primary">Add New Record</a></center>  
+</body>  
+</html>  

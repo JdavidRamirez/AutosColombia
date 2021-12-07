@@ -10,6 +10,9 @@ class Usuario(models.Model):
     celular=models.CharField(max_length=15)
     email=models.CharField(max_length=50)
 
+    class Meta:  
+        db_table = "usuario"  
+
     def nombre_completo(self):
         return "{}, {}".format(self.apellido, self.nombre)
 
@@ -19,12 +22,13 @@ class Usuario(models.Model):
 class Pago(models.Model):
     idPago=models.PositiveSmallIntegerField(primary_key=True)
     fecha=models.DateTimeField('date published')
+    valor=models.FloatField()
     idUsuario=models.ForeignKey(
         Usuario, null=True, blank=True, on_delete=models.CASCADE)
 
     def __str__(self):
-        texto = "{0} ({1})"
-        return texto.format(self.idUsuario, self.fecha)
+        texto = "{} {}, {}"
+        return texto.format(self.idUsuario,self.valor, self.fecha)
 
 class Vehiculo(models.Model):
     idVehiculo=models.PositiveSmallIntegerField(primary_key=True)

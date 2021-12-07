@@ -16,11 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from gestion import views
+from django.conf.urls import url, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('formulario_consulta/', views.formulario_consulta),
-    path('buscar/', views.buscar),
-    path('buscar_vehiculo/', views.buscar_vehiculo),
-    path('buscar_celda/', views.buscar_celda),
+    path('emp', views.emp),  
+    path('show',views.show),  
+    path('edit/<int:id>', views.edit),  
+    path('update/<int:id>', views.update),  
+    path('delete/<int:id>', views.destroy),  
 ]
